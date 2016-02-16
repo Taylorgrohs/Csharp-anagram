@@ -9,13 +9,22 @@ namespace AnagramChecker
     public void IsAnagram_ForSingleLetter_true()
     {
       Anagram testWord = new Anagram();
-      Assert.Equal(true,  testWord.IsAnagram("a", "a"));
+      List<string> testList= testWord.IsAnagram("a", "a");
+      Assert.Equal(testList, testWord.IsAnagram("a", "a"));
     }
     [Fact]
-    public void IsAnagram_ForSingleLetter_false()
+    public void IsAnagram_ForTwoLetters_true()
     {
       Anagram testWord = new Anagram();
-      Assert.Equal(false, testWord.IsAnagram("a", "b"));
+      List<string> testList= testWord.IsAnagram("ab", "ba");
+      Assert.Equal(testList, testWord.IsAnagram("ab", "ba"));
+    }
+    [Fact]
+    public void IsAnagram_ForBigWord_true()
+    {
+      Anagram testWord = new Anagram();
+      List<string> testList= testWord.IsAnagram("beard", "bread, beard, egg, butter");
+      Assert.Equal(testList, testWord.IsAnagram("beard", "bread, beard, egg, butter"));
     }
     // public void Dispose()
     // {
