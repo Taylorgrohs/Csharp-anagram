@@ -10,10 +10,11 @@ namespace AnagramChecker
       char[] wordArray = word1.ToCharArray();
       Array.Sort(wordArray);
       string sortedWord1 = String.Join("", wordArray);
-      List<string> words = new List<string>(word2.Split(new string[] {","}, StringSplitOptions.None));
-      Console.WriteLine(words);
+      //.Split returns char[]. Have to use following syntax to return string[]
+      List<string> words = new List<string>(word2.Split(new string[] {" "}, StringSplitOptions.None));
       List<string> resultWords = new List<string> {};
-      foreach(string word in words){
+      foreach(string word in words)
+      {
         char[] wordArray2 = word.ToCharArray();
           Array.Sort(wordArray2);
         string sortedWord2 = String.Join("",wordArray2 );

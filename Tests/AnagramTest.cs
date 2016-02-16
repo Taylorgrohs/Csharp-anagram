@@ -23,8 +23,13 @@ namespace AnagramChecker
     public void IsAnagram_ForBigWord_true()
     {
       Anagram testWord = new Anagram();
-      List<string> testList= testWord.IsAnagram("beard", "bread, beard, egg, butter");
-      Assert.Equal(testList, testWord.IsAnagram("beard", "bread, beard, egg, butter"));
+      List<string> testList= testWord.IsAnagram("beard", "bread beard egg butter");
+      foreach(string i in testList)
+      {
+        Console.WriteLine(i);
+        Console.WriteLine(testList.Count);
+      }
+      Assert.Equal(testList, testWord.IsAnagram("beard", "bread beard egg butter"));
     }
     // public void Dispose()
     // {
